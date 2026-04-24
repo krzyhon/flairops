@@ -24,7 +24,7 @@ theme = "hugo-minimal-black"
   appleTouchIcon = "apple-touch-icon.png"
 
   # Logo (optional)
-  logo = "images/logo.png"
+  logo = "images/FlairOps.png"
 
   # Project and blog intro text
   projectsIntro = "Selected projects to display list." # Can be empty
@@ -181,10 +181,6 @@ theme = "hugo-minimal-black"
       "Building CI/CD pipelines on GitHub Actions",
       "Building solutions in AWS"
     ]
-
-    [params.hero.primary]
-      label = "View Projects"
-      href = "/projects/"
 
     [params.hero.secondary]
       label = "Read the Blog"
