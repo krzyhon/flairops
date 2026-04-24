@@ -1,5 +1,5 @@
 +++
-title = "Stop tracking a file"
+title = "Stop tracking a file in Git"
 date = "2026-04-24"
 author = "Krzysztof Filar"
 tags = ["git"]
