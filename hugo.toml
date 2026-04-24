@@ -182,7 +182,7 @@ theme = "hugo-minimal-black"
       "Building solutions in AWS"
     ]
 
-    [params.hero.secondary]
+    [params.hero.primary]
       label = "Read the Blog"
       href = "/blog/"
 
