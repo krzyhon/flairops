@@ -245,23 +245,23 @@ theme = "hugo-minimal-black"
     [menu.main.params]
       icon = "fa-solid fa-house"
 
-  [[menu.main]]
-    name = "About"
-    pageRef = "about"
-    url = "/about/"
-    weight = 2
-    identifier = "about"
-    [menu.main.params]
-      icon = "fa-regular fa-user"
+#  [[menu.main]]
+#    name = "About"
+#    pageRef = "about"
+#    url = "/about/"
+#    weight = 2
+#    identifier = "about"
+#    [menu.main.params]
+#      icon = "fa-regular fa-user"
 
-  [[menu.main]]
-    name = "About Alt"
-    pageRef = "about-alternative"
-    url = "/about-alternative/"
-    weight = 2
-    identifier = "about-alternative"
-    [menu.main.params]
-      icon = "fa-solid fa-user"
+#  [[menu.main]]
+#    name = "About Alt"
+#    pageRef = "about-alternative"
+#    url = "/about-alternative/"
+#    weight = 2
+#    identifier = "about-alternative"
+#    [menu.main.params]
+#      icon = "fa-solid fa-user"
 
   [[menu.main]]
     name = "Blog"
