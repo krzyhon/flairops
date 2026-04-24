@@ -81,6 +81,10 @@ theme = "hugo-minimal-black"
       icon = "devicon-git-plain"
 
     [[params.home.tech]]
+      label = "Datadog"
+      icon = "devicon-datadog-plain"  
+
+    [[params.home.tech]]
       label = "YAML"
       icon = "devicon-yaml-plain"  
 
