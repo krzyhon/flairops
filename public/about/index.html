@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en"
+  data-cb-collapse-enabled=""
+  data-cb-collapse-default=""
+  data-cb-collapse-lines=""
+  data-cb-collapse-auto-height=""
+  data-cb-collapse-collapsed-height="">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>About Me | Krzysztof Filar</title>
+
+<meta name="description" content="DevOps Engineer based in Poland" />
+
+
+
+
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.svg" />
+
+
+
+
+  <link rel="apple-touch-icon" href="/Users/krzysztof.filar/Sources/flairops/content/about/_index.md" />
+
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+      <link rel="manifest" href="http://localhost:1313/manifest.webmanifest" />
+    
+  
+
+
+<link rel="stylesheet" href="/css/main.css"> 
+
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  >
+
+
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/devicon.min.css"
+  >
+
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+/>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/justified-gallery@3.8.2/dist/css/justifiedGallery.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ theme: "dark" });
+</script>
+
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var systemDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var defaultTheme =
+        'dark';
+
+      var theme =
+        stored ||
+        (defaultTheme === "dark"
+          ? "dark"
+          : defaultTheme === "light"
+          ? "light"
+          : systemDark
+          ? "dark"
+          : "light");
+
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>
+
+
+
+
+  </head>
+  <body class="min-h-screen bg-bg text-text antialiased">
+    <div class="flex min-h-screen flex-col">
+      <header class="pt-6">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    
+    <div class="nav-shell">
+      <div class="nav-inner">
+        
+        <a href="/" class="flex items-center gap-2">
+          
+            <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-surface">
+              <img
+                src="/images/logo.png"
+                alt="Krzysztof Filar"
+                class="h-full w-full object-cover"
+              >
+            </div>
+          
+          <span class="text-xs font-semibold tracking-wide">
+            Krzysztof Filar
+          </span>
+        </a>
+
+        <div class="flex items-center gap-2">
+          
+          <nav class="hidden items-center gap-5 md:flex">
+              <a
+                href="/"
+                class="nav-link link-underline flex items-center gap-1 "
+              >
+                
+                  <i class="fa-solid fa-house text-[0.75rem]"></i>
+                
+                <span>Home</span>
+              </a>
+              <a
+                href="/about/"
+                class="nav-link link-underline flex items-center gap-1 text-text"
+              >
+                
+                  <i class="fa-regular fa-user text-[0.75rem]"></i>
+                
+                <span>About</span>
+              </a>
+              <a
+                href="/about-alternative/"
+                class="nav-link link-underline flex items-center gap-1 "
+              >
+                
+                  <i class="fa-solid fa-user text-[0.75rem]"></i>
+                
+                <span>About Alt</span>
+              </a>
+              <a
+                href="/blog/"
+                class="nav-link link-underline flex items-center gap-1 "
+              >
+                
+                  <i class="fa-regular fa-note-sticky text-[0.75rem]"></i>
+                
+                <span>Blog</span>
+              </a>
+          </nav>
+
+          
+          <button
+  type="button"
+  class="theme-toggle"
+  aria-label="Toggle dark mode"
+  data-theme-toggle
+>
+  <span data-theme-icon-light style="display: none">
+    
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="4" />
+      <path
+        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M8.05 15.95l-1.414 1.414m0-11.314L8.05 8.05m9.9 9.9-1.414-1.414"
+      />
+    </svg>
+  </span>
+
+  <span data-theme-icon-dark>
+    
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M21 12.79A9 9 0 0 1 12.21 3 7 7 0 1 0 21 12.79z" />
+    </svg>
+  </span>
+</button>
+
+
+          
+          <button
+            type="button"
+            class="ml-1 inline-flex items-center justify-center rounded-full border border-border bg-bg p-2 text-muted shadow-sm hover:text-accent md:hidden"
+            aria-label="Toggle navigation"
+            data-mobile-nav-toggle
+          >
+            <span class="sr-only">Open navigation</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="mx-auto mt-2 max-w-7xl px-4 sm:px-6 md:hidden">
+    <nav
+      class="hidden rounded-2xl border border-border bg-surface px-4 py-3 text-sm text-muted shadow-md"
+      data-mobile-nav
+    >
+      
+        <a href="/" class="flex items-center gap-2 py-1.5">
+          
+            <i class="fa-solid fa-house text-[0.8rem]"></i>
+          
+          <span>Home</span>
+        </a>
+      
+        <a href="/about/" class="flex items-center gap-2 py-1.5">
+          
+            <i class="fa-regular fa-user text-[0.8rem]"></i>
+          
+          <span>About</span>
+        </a>
+      
+        <a href="/about-alternative/" class="flex items-center gap-2 py-1.5">
+          
+            <i class="fa-solid fa-user text-[0.8rem]"></i>
+          
+          <span>About Alt</span>
+        </a>
+      
+        <a href="/blog/" class="flex items-center gap-2 py-1.5">
+          
+            <i class="fa-regular fa-note-sticky text-[0.8rem]"></i>
+          
+          <span>Blog</span>
+        </a>
+      
+    </nav>
+  </div>
+</header>
+
+
+      <main class="flex-1">
+        
+  <section class="layout-page">
+    <article class="about-page">
+      
+      <header class="about-hero">
+        <div class="about-hero-content">
+          
+
+          <h1 class="about-title">About Me</h1>
+
+          
+            <p class="about-subtitle">Software Engineer | Full Stack Developer | Open Source Enthusiast</p>
+          
+        </div>
+      </header>
+
+      
+      <div class="about-content">
+        <div class="card card-pad markdown-body">
+          
+          
+          
+          
+          
+
+          
+            
+            <p>I&rsquo;m a passionate software engineer with expertise in building scalable web applications and developer tools. With a focus on clean code, performance optimization, and user experience, I help teams ship products that users love.</p>
+<h2 id="what-i-do">
+  <a href="#what-i-do" class="md-heading-anchor">
+    What I Do
+  </a>
+</h2>
+<p>I specialize in full-stack development with a keen interest in:</p>
+<ul>
+<li><strong>Backend Engineering</strong> — Building robust APIs and microservices with modern frameworks</li>
+<li><strong>Frontend Development</strong> — Creating responsive, accessible user interfaces</li>
+<li><strong>DevOps &amp; Infrastructure</strong> — Container orchestration, CI/CD, and cloud platforms</li>
+<li><strong>Open Source</strong> — Contributing to and maintaining open-source projects</li>
+</ul>
+<h2 id="timeline-demonstration">
+  <a href="#timeline-demonstration" class="md-heading-anchor">
+    Timeline Demonstration
+  </a>
+</h2>
+<blockquote class="md-blockquote">
+    <p>This page demonstrates the <strong>standard about layout</strong> with a timeline feature. Use horizontal rules (<code>---</code>) to separate timeline entries. Each section becomes a card in the timeline visualization.</p>
+
+  </blockquote><h3 id="current-focus">
+  <a href="#current-focus" class="md-heading-anchor">
+    Current Focus
+  </a>
+</h3>
+<p>Right now, I&rsquo;m exploring minimal design patterns, modern web frameworks, and building tools that make developers&rsquo; lives easier. I believe in writing code that is simple, maintainable, and well-documented.</p>
+
+
+            
+            <div class="timeline">
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<p><strong>Senior Software Engineer</strong> — <a
+  href="https://example.com"
+  target="_blank" rel="noopener"
+  class="md-link"
+>
+  Tech Company
+</a>
+
+<em>January 2022 – Present • Remote</em></p>
+<p>Leading the development of cloud-native applications using modern frameworks and best practices. Mentoring junior developers and driving technical decisions for large-scale projects.</p>
+<p>Key achievements:</p>
+<ul>
+<li>Architected microservices platform serving 1M+ users</li>
+<li>Reduced deployment time by 60% through CI/CD improvements</li>
+<li>Led migration from monolith to distributed architecture</li>
+</ul>
+<p><strong>Technologies:</strong> React, Node.js, PostgreSQL, Docker, Kubernetes, AWS</p>
+
+                    </div>
+                  </div>
+                
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<p><strong>Full Stack Developer</strong> — Startup Inc.
+<em>March 2020 – December 2021 • San Francisco, CA</em></p>
+<p>Developed and maintained multiple web applications from concept to production. Collaborated with cross-functional teams to deliver features that increased user engagement by 40%.</p>
+<ul>
+<li>Built RESTful APIs serving 500K+ daily requests</li>
+<li>Implemented real-time features using WebSockets</li>
+<li>Optimized database queries reducing response time by 50%</li>
+</ul>
+<p><strong>Technologies:</strong> Python, Django, Vue.js, Redis, MySQL, GCP</p>
+
+                    </div>
+                  </div>
+                
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<p><strong>Software Engineer</strong> — Digital Solutions Corp.
+<em>June 2018 – February 2020 • New York, NY</em></p>
+<p>Worked on enterprise solutions for Fortune 500 clients. Focused on backend development, database design, and system integration.</p>
+<ul>
+<li>Developed internal tools that saved 200+ hours monthly</li>
+<li>Integrated third-party APIs for payment processing</li>
+<li>Maintained legacy systems while modernizing architecture</li>
+</ul>
+<p><strong>Technologies:</strong> Java, Spring Boot, Oracle DB, Angular, Jenkins</p>
+
+                    </div>
+                  </div>
+                
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<p><strong>Junior Developer</strong> — Code Academy
+<em>January 2017 – May 2018 • Boston, MA</em></p>
+<p>Started my professional journey building web applications and learning industry best practices. Contributed to various client projects and internal tooling.</p>
+<ul>
+<li>Developed responsive web interfaces</li>
+<li>Wrote automated tests achieving 90%+ coverage</li>
+<li>Participated in code reviews and agile ceremonies</li>
+</ul>
+<p><strong>Technologies:</strong> JavaScript, PHP, Laravel, MySQL, Git</p>
+
+                    </div>
+                  </div>
+                
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<h2 id="education--certifications">
+  <a href="#education--certifications" class="md-heading-anchor">
+    Education &amp; Certifications
+  </a>
+</h2>
+<p><strong>Bachelor of Science in Computer Science</strong>
+University of Technology • 2013-2017</p>
+<p><strong>Certifications:</strong></p>
+<ul>
+<li>AWS Certified Solutions Architect</li>
+<li>Google Cloud Professional Developer</li>
+<li>Certified Kubernetes Administrator (CKA)</li>
+</ul>
+
+                    </div>
+                  </div>
+                
+              
+                
+                
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      
+<h2 id="how-this-layout-works">
+  <a href="#how-this-layout-works" class="md-heading-anchor">
+    How This Layout Works
+  </a>
+</h2>
+<p>This about page uses the <strong>timeline layout</strong>. Here&rsquo;s how to customize it:</p>
+<ol>
+<li>Set <code>layout = &quot;about&quot;</code> in the frontmatter</li>
+<li>Write your introduction before the first <code>---</code> separator</li>
+<li>Each section after <code>---</code> becomes a timeline card</li>
+<li>Use markdown formatting: <strong>bold</strong> for job titles, <em>italic</em> for dates</li>
+<li>Add links using <code>[text](url)</code> syntax</li>
+<li>Timeline items appear in chronological order (newest first)</li>
+</ol>
+<h3 id="features-demonstrated">
+  <a href="#features-demonstrated" class="md-heading-anchor">
+    Features Demonstrated
+  </a>
+</h3>
+<ul>
+<li>✅ Hero section with avatar and subtitle</li>
+<li>✅ Timeline visualization with markers and cards</li>
+<li>✅ Markdown content with formatting</li>
+<li>✅ Links and emphasis</li>
+<li>✅ Responsive design</li>
+<li>✅ Social links in footer</li>
+</ul>
+
+                    </div>
+                  </div>
+                
+              
+            </div>
+          
+        </div>
+      </div>
+
+      
+      
+        <div class="about-social">
+          <h3 class="about-social-title">Let's Connect</h3>
+          <div class="about-social-links">
+            
+              <a
+                href="https://github.com/krzyhon"
+                class="about-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            
+              <a
+                href="https://www.linkedin.com/in/krzysztof-f-17799b227/"
+                class="about-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+              </a>
+            
+              <a
+                href="mailto:krzyhon@gmail.com"
+                class="about-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Email"
+              >
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    </article>
+  </section>
+
+      </main>
+
+      <footer class="pb-6 pt-10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="footer-shell">
+      <div class="footer-inner">
+        
+        <div class="space-y-1">
+          <p class="footer-small">
+            &copy; 2026 Krzysztof Filar — All rights
+            reserved.
+          </p>
+
+          <p class="footer-small flex flex-wrap items-center gap-1">
+            <span>Built with</span>
+
+            <a
+              href="https://gohugo.io/"
+              class="footer-link footer-float link-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Hugo</span>
+            </a>
+
+            <span>/</span>
+
+            <a
+              href=""
+              class="footer-link footer-float link-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Minimal&nbsp;Black</span>
+            </a>
+          </p>
+        </div>
+
+        
+        
+        <div class="footer-links">
+          
+          <a
+            href="https://github.com/krzyhon"
+            class="footer-link footer-float link-underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github text-[0.8rem]"></i>
+            <span>GitHub</span>
+          </a>
+          
+          <a
+            href="https://www.linkedin.com/in/krzysztof-f-17799b227/"
+            class="footer-link footer-float link-underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-linkedin-in text-[0.8rem]"></i>
+            <span>LinkedIn</span>
+          </a>
+          
+          <a
+            href="mailto:krzyhon@gmail.com"
+            class="footer-link footer-float link-underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-regular fa-envelope text-[0.8rem]"></i>
+            <span>Email</span>
+          </a>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="search-overlay" data-search-overlay>
+  <div class="search-overlay-backdrop" data-search-close></div>
+
+  <div class="search-panel">
+    <div class="search-panel-header">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass text-[0.8rem] text-muted"></i>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search posts..."
+          autocomplete="off"
+          data-search-input
+        />
+      </div>
+      <button
+        type="button"
+        class="search-close"
+        data-search-close
+        aria-label="Close search"
+      >
+        <i class="fa-solid fa-xmark text-[0.8rem]"></i>
+      </button>
+    </div>
+
+    <div class="search-panel-body">
+      <div class="search-results" data-search-results>
+        <div class="search-empty-state">
+          <div class="search-empty-icon">
+            <i class="fa-solid fa-magnifying-glass text-[1rem]"></i>
+          </div>
+          <p class="search-empty-title">Start searching</p>
+          <p class="search-empty-subtitle">
+            Enter keywords to search articles.
+          </p>
+        </div>
+      </div>
+
+      <div class="search-footer-hints">
+        <div class="search-hint-key">
+          <span>↑↓</span>
+          <span>Navigate</span>
+        </div>
+        <div class="search-hint-key">
+          <span>↵</span>
+          <span>Select</span>
+        </div>
+        <div class="search-hint-key">
+          <span>ESC</span>
+          <span>Close</span>
+        </div>
+        <div class="search-hint-key search-hint-right">
+          <span>Ctrl</span><span>K</span>
+          <span>Shortcut</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="dock" data-dock>
+  <div class="dock-inner">
+    
+    <div class="dock-panel" data-dock-panel>
+      
+      
+      <button
+        type="button"
+        class="dock-action"
+        data-dock-action="back"
+        aria-label="Go back"
+      >
+        <i class="fa-solid fa-arrow-left text-[0.7rem]"></i>
+      </button>
+      <span class="dock-divider" aria-hidden="true"></span>
+      
+
+      
+      <button
+        type="button"
+        class="dock-action"
+        data-dock-action="search"
+        aria-label="Search"
+        onclick="window.MinimalSearch && window.MinimalSearch.open()"
+      >
+        <i class="fa-solid fa-magnifying-glass text-[0.7rem]"></i>
+      </button>
+
+      
+      <span class="dock-divider" aria-hidden="true"></span>
+
+      
+      <button
+        type="button"
+        class="dock-action"
+        data-dock-action="top"
+        aria-label="Back to top"
+      >
+        <i class="fa-solid fa-arrow-up text-[0.7rem]"></i>
+      </button>
+    </div>
+
+    
+    <button
+      type="button"
+      class="dock-toggle"
+      aria-label="Open quick actions"
+      data-dock-toggle
+    >
+      <span class="dock-toggle-dots"></span>
+    </button>
+  </div>
+</div>
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/search.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justified-gallery@3.8.2/dist/js/justifiedGallery.min.js" defer></script>
+    <script src="/js/lightbox.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+  </body>
+</html>

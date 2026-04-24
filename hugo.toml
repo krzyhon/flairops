@@ -1,0 +1,324 @@
+baseURL = 'https://flairops.cloud'
+languageCode = 'en-us'
+title = 'Krzysztof Filar'
+theme = "hugo-minimal-black"
+
+# Enable search index generation and web app manifest
+[outputs]
+  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+  baseName = "manifest"
+  isPlainText = true
+  notAlternative = true
+
+[params]
+  brand = "Krzysztof Filar"
+  description = "DevOps Engineer based in Poland"
+
+  # Favicon - Place your favicon files in /static/ directory
+  # Supported formats: .ico, .png, .svg
+  favicon = "icons/favicon.svg"
+  appleTouchIcon = "apple-touch-icon.png"
+
+  # Logo (optional)
+  logo = "images/logo.png"
+
+  # Project and blog intro text
+  projectsIntro = "Selected projects to display list." # Can be empty
+  blogIntro = "" # Can be empty
+
+  # Web App Manifest Configuration (PWA support)
+  [params.manifest]
+    themeColor = "#a855f7"
+    backgroundColor = "#000000"
+    categories = ["blog", "portfolio", "developer"]
+
+    # Custom icon configuration (optional)
+    # If not specified, defaults to /icons/android-chrome-*.png
+    # [[params.manifest.icons]]
+    #   src = "/icons/android-chrome-192x192.png"
+    #   sizes = "192x192"
+    #   type = "image/png"
+    #   purpose = "any maskable"
+
+  # Theme Configuration
+  [params.theme]
+    defaultTheme = "dark"  # Options: "light", "dark", "system"
+
+  # Home Page Configuration
+  [params.home]
+    sections = ["hero", "now", "tech-marquee", "posts"]
+    showNowSection = true
+    showFeaturedProjects = false
+    showLatestPosts = true
+    featuredProjectsLimit = 3
+    latestPostsLimit = 3
+    projectsTitle = "Selected Work"
+    projectsSubtitle = ""
+    blogTitle = "Latest Writing"
+    blogSubtitle = ""
+    techMarqueeLabel = "Experienced In"
+
+    # Technology Stack Display
+
+    [[params.home.tech]]
+      label = "Docker"
+      icon = "devicon-docker-plain"
+
+    [[params.home.tech]]
+      label = "Terraform"
+      icon = "devicon-terraform-plain"
+
+    [[params.home.tech]]
+      label = "GitHub Actions"
+      icon = "devicon-githubactions-plain"
+
+    [[params.home.tech]]
+      label = "Git"
+      icon = "devicon-git-plain"
+
+    [[params.home.tech]]
+      label = "YAML"
+      icon = "devicon-yaml-plain"  
+
+    [[params.home.tech]]
+      label = "Json"
+      icon = "devicon-json-plain" 
+
+    [[params.home.tech]]
+      label = "MongoDB"
+      icon = "devicon-mongodb-plain"
+
+    [[params.home.techReverse]]
+      label = "Markdown"
+      icon = "devicon-markdown-original"  
+
+    [[params.home.techReverse]]
+      label = "Python"
+      icon = "devicon-python-plain"
+
+    [[params.home.techReverse]]
+      label = "Jenkins"
+      icon = "devicon-jenkins-plain"   
+
+    [[params.home.techReverse]]
+      label = "Hugo"
+      icon = "devicon-hugo-plain"  
+
+    [[params.home.techReverse]]
+      label = "Linux"
+      icon = "devicon-linux-plain"          
+
+    [[params.home.techReverse]]
+      label = "Grafana"
+      icon = "devicon-grafana-plain"
+
+    [[params.home.techReverse]]
+      label = "InfluxDB"
+      icon = "devicon-influxdb-plain"  
+
+
+
+  # About Page Alternative Layout Configuration - Optional
+  [params.about.alt]
+    # Stats displayed in the profile card sidebar
+    [[params.about.alt.stats]]
+      value = "5+"
+      label = "Years Coding"
+
+    [[params.about.alt.stats]]
+      value = "20+"
+      label = "Projects"
+
+    [[params.about.alt.stats]]
+      value = "∞"
+      label = "Hours Spent"
+
+    # Skills/Tech Stack badges with icons
+    [[params.about.alt.skills]]
+      label = "JavaScript"
+      icon = "devicon-javascript-plain"
+
+    [[params.about.alt.skills]]
+      label = "Python"
+      icon = "devicon-python-plain"
+
+    [[params.about.alt.skills]]
+      label = "React"
+      icon = "devicon-react-original"
+
+    [[params.about.alt.skills]]
+      label = "Docker"
+      icon = "devicon-docker-plain"
+
+    [[params.about.alt.skills]]
+      label = "PostgreSQL"
+      icon = "devicon-postgresql-plain"
+
+    [[params.about.alt.skills]]
+      label = "AWS"
+      icon = "devicon-amazonwebservices-plain"
+
+  # Hero Section Configuration
+  [params.hero]
+    badge = "DevOps Engineer"
+    title = "Hi, I'm Krzysztof Filar"
+    role = "DevOps Engineer based in Poland"
+    summary = "I help teams build, automate and scale infrastructure. Focused on CI/CD, cloud platforms and making systems reliable."
+    # avatar = "images/avatar.jpg"  # Optional: 400x400px recommended
+    location = "Poland"
+    focus = "Currently focused on cloud infrastructure and automation."
+    available = true
+    availableLabel = "Available for work"
+
+    nowLabel = "Quick Facts"
+    nowIntro = "Right now I'm mainly:"
+    now = [
+      "Automating infrastructure with Terraform",
+      "Building CI/CD pipelines on GitHub Actions",
+      "Building solutions in AWS"
+    ]
+
+    [params.hero.primary]
+      label = "View Projects"
+      href = "/projects/"
+
+    [params.hero.secondary]
+      label = "Read the Blog"
+      href = "/blog/"
+
+  # Icon Libraries
+  [params.icons]
+    useFontAwesome = true
+    useDevicon = true
+
+  # Social Links
+  [[params.social]]
+    label = "GitHub"
+    url = "https://github.com/krzyhon"
+    icon = "fa-brands fa-github"
+
+  [[params.social]]
+    label = "LinkedIn"
+    url = "https://www.linkedin.com/in/krzysztof-f-17799b227/"
+    icon = "fa-brands fa-linkedin-in"
+
+  [[params.social]]
+    label = "Email"
+    url = "mailto:krzyhon@gmail.com"
+    icon = "fa-regular fa-envelope"
+
+  # Analytics Configuration
+  [params.analytics]
+    # Google Analytics (GA4)
+    # googleAnalytics = "G-XXXXXXXXXX"
+
+    # Plausible Analytics (privacy-friendly)
+    # [params.analytics.plausible]
+    #   enabled = true
+    #   domain = "yourdomain.com"
+    #   scriptUrl = "https://plausible.io/js/script.js"
+
+    # Umami Analytics (self-hosted option)
+    # [params.analytics.umami]
+    #   enabled = true
+    #   scriptUrl = "https://analytics.yourdomain.com/script.js"
+    #   websiteId = "your-website-id"
+
+    # Fathom Analytics
+    # [params.analytics.fathom]
+    #   enabled = true
+    #   scriptUrl = "https://cdn.usefathom.com/script.js"
+    #   siteId = "YOUR-SITE-ID"
+
+# Navigation Menu
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pageRef = "/"
+    url = "/"
+    weight = 1
+    identifier = "home"
+    [menu.main.params]
+      icon = "fa-solid fa-house"
+
+  [[menu.main]]
+    name = "About"
+    pageRef = "about"
+    url = "/about/"
+    weight = 2
+    identifier = "about"
+    [menu.main.params]
+      icon = "fa-regular fa-user"
+
+  [[menu.main]]
+    name = "About Alt"
+    pageRef = "about-alternative"
+    url = "/about-alternative/"
+    weight = 2
+    identifier = "about-alternative"
+    [menu.main.params]
+      icon = "fa-solid fa-user"
+
+  [[menu.main]]
+    name = "Blog"
+    pageRef = "blog"
+    url = "/blog/"
+    weight = 4
+    identifier = "blog"
+    [menu.main.params]
+      icon = "fa-regular fa-note-sticky"
+
+# Markup Configuration
+[markup]
+  # Table of Contents
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+  # Goldmark Renderer (Markdown)
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+
+  [markup.goldmark.extensions]
+    typographer = true
+    linkify = true
+    table = true
+    strikethrough = true
+    taskList = true
+    definitionList = true
+    footnote = true
+
+    [markup.goldmark.extensions.extras.delete]
+      enable = true
+    [markup.goldmark.extensions.extras.insert]
+      enable = true
+    [markup.goldmark.extensions.extras.mark]
+      enable = true
+
+  # Syntax Highlighting
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    lineNumbersInTable = false
+    noClasses = false
+    style = "monokai"
+    tabWidth = 2
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Privacy Configuration
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
