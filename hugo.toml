@@ -15,7 +15,7 @@ theme = "hugo-minimal-black"
   notAlternative = true
 
 [params]
-  brand = "Krzysztof Filar"
+  brand = "FlairOps"
   description = "DevOps Engineer based in Poland"
 
   # Favicon - Place your favicon files in /static/ directory
@@ -24,7 +24,7 @@ theme = "hugo-minimal-black"
   appleTouchIcon = "apple-touch-icon.png"
 
   # Logo (optional)
-  logo = "images/FlairOps.png"
+  logo = "images/flairops400.png"
 
   # Project and blog intro text
   projectsIntro = "Selected projects to display list." # Can be empty
@@ -172,10 +172,10 @@ theme = "hugo-minimal-black"
     title = "Hi, I'm Krzysztof Filar"
     role = "DevOps Engineer based in Poland"
     summary = "I help teams build, automate and scale infrastructure. Focused on CI/CD, cloud platforms and making systems reliable."
-    # avatar = "images/avatar.jpg"  # Optional: 400x400px recommended
+    avatar = "images/flairops400.png"  # Optional: 400x400px recommended
     location = "Poland"
     focus = "Currently focused on cloud infrastructure and automation."
-    available = true
+    available = false
     availableLabel = "Available for work"
 
     nowLabel = "Quick Facts"
@@ -245,14 +245,14 @@ theme = "hugo-minimal-black"
     [menu.main.params]
       icon = "fa-solid fa-house"
 
-#  [[menu.main]]
-#    name = "About"
-#    pageRef = "about"
-#    url = "/about/"
-#    weight = 2
-#    identifier = "about"
-#    [menu.main.params]
-#      icon = "fa-regular fa-user"
+  [[menu.main]]
+    name = "About"
+    pageRef = "about"
+    url = "/about/"
+    weight = 2
+    identifier = "about"
+    [menu.main.params]
+      icon = "fa-regular fa-user"
 
 #  [[menu.main]]
 #    name = "About Alt"
