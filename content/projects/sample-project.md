@@ -7,6 +7,7 @@ demo = "https://minimal-black-demo.netlify.app"
 tags = ["hugo", "theme", "web-development", "open-source"]
 categories = ["web"]
 featured = true
+draft = true
 +++
 
 A comprehensive Hugo theme designed for developers, designers, and everyone in general who value simplicity, performance, and beautiful dare I say dark mode design (maybe?).

@@ -187,6 +187,10 @@ theme = "hugo-minimal-black"
     ]
 
     [params.hero.primary]
+      label = "View Projects"
+      href = "/projects/"
+
+    [params.hero.secondary]
       label = "Read the Blog"
       href = "/blog/"
 
@@ -254,6 +258,15 @@ theme = "hugo-minimal-black"
     [menu.main.params]
       icon = "fa-regular fa-user"
 
+  [[menu.main]]
+    name = "Projects"
+    pageRef = "projects"
+    url = "/projects/"
+    weight = 3
+    identifier = "projects"
+    [menu.main.params]
+      icon = "fa-regular fa-folder-open"
+      
 #  [[menu.main]]
 #    name = "About Alt"
 #    pageRef = "about-alternative"
