@@ -3,7 +3,7 @@ title = "Stop tracking a file in Git"
 date = "2026-04-24"
 author = "Krzysztof Filar"
 tags = ["git"]
-categories = ["documentation"]
+categories = ["Documentation"]
 description = "How to stop tracking changes in a file in Git"
 draft = false
 +++

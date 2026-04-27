@@ -5,7 +5,7 @@ author = "Jim Christopoulos"
 tags = ["hugo", "tutorial", "guide", "theme"]
 categories = ["documentation"]
 description = "A comprehensive guide to all features and capabilities of the Minimal Black Hugo theme"
-draft = false
+draft = true
 +++
 
 Welcome to the complete guide for the Minimal Black Hugo theme! 
