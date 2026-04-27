@@ -3,21 +3,32 @@ title = 'GHA workflow  with workflow_dispatch trigger on your feature_branch'
 description = 'How to run GHA workflow on your feature_branch with workflow_dispatch trigger'
 date = '2026-04-27T12:46:20+02:00'
 author = "Krzysztof Filar"
-categories = ["Automation"]
-tags = ["github", "github actions"]
+categories = ["automation", "ci/cd"]
+tags = ["github", "github actions", "ci/cd", "automation"]
 +++
 
-## Problem
-If you have a workflow that starts on the `workflow_dispatch` event and you're working on your `feature branch`, it's not possible to launch such a workflow from Github.
-You can only manually start such a workflow if it's on the `default` branch. This is a rather annoying limitation. However, there is a way around this.
+## How to Trigger `workflow_dispatch` on a Feature Branch in GitHub Actions
+If you've ever tried to manually trigger a GitHub Actions workflow from a feature branch, you may have noticed something odd: the **"Run workflow"** button simply isn't there. This happens because GitHub only allows manual triggers (`workflow_dispatch`) from the default branch.
+In this guide, you'll learn a simple workaround that lets you trigger workflows from any branch using the GitHub CLI-without merging your changes prematurely.
 
-## Solution
-Here's what you need to do:
+## TL;DR
+- GitHub only allows `workflow_dispatch` from the default branch
+- Add a temporary `push` trigger to "register" the workflow
+- Remove it after the first run
+- Use `gh workflow run` with `--ref` to trigger it on your feature branch
 
-1. First, install gh (Github CLI). Here's how: https://cli.github.com/manual/installation
+## The Problem
+Let's say you've defined a workflow that uses `workflow_dispatch` and you're developing it on a feature branch. Even though the workflow file exists in your repository, GitHub won't show the **"Run workflow”** button unless that workflow is present on the default branch.
 
-2. Then, add a one-time push trigger to the workflow:
+## The Workaround
+The trick is to make GitHub "see” your workflow once—after that, you can trigger it using the GitHub CLI.
 
+### Step 1: Install GitHub CLI
+If you don't already have it installed, download and install the GitHub CLI (`gh`):
+https://cli.github.com/manual/installation⁠
+
+### Step 2: Temporarily Add a push Trigger
+Modify your workflow file to include a temporary push trigger for your feature branch:
 ```yaml
 push:
   branches:
@@ -25,24 +36,26 @@ push:
 workflow_dispatch:
 ```
 
-3. `Commit` and `push` to your repository. The workflow should start. 
+### Step 3: Commit and Push
+Commit the change and push it to your repository. This will trigger the workflow automatically.
+<br></br>
+At this point, GitHub registers your workflow and makes it visible in the Actions tab.
 
-This `push` trigger is so that the name of your workflow appears here (in this case it is `Build and deploy`):
+### Step 4: Remove the Temporary Trigger
+Now that the workflow has appeared in the Actions list, you can safely remove the push trigger. 
 ![Actions List](actions_list.png)
+Commit and push the changes again.
+<br></br>
+This is a one-time setup step—without it, the CLI commands in the next step won't work.
 
-4. Now you can remove the `push` trigger and `commit` and `push` to the repository again.
-
-Without this one-time action, even though the workflow exists in the `.github` directory on your branch, the following commands will not work.
-
-5. Now to trigger workflow run this command:
-
+### Step 5: Trigger the Workflow via CLI
+You can now manually trigger the workflow using the GitHub CLI:
 ```bash
 gh workflow run "Name of the Workflow" \
 --ref your_feature_branch \
 -f input_name="input_value" -f another_input_name="another_input_value"
 ```
-
-After running this command, you will see a message similar to the one below:
+After running this command, you should see output similar to:
 
 ```text
 ✓ Created workflow_dispatch event for workflow_name.yml at feature_branch_name
@@ -52,4 +65,12 @@ To see the created workflow run, try: gh run view 24985074138
 To see runs for this workflow, try: gh run list --workflow="workflow_name.yml"
 ```
 
-6. Go to your repository on Github, click on Action tab and you should see the running workflow. 
+### Step 6: Verify in GitHub
+Go to your repository, open the Actions tab, and you should see your workflow running.
+
+## Final Thoughts
+Go to your repository, open the Actions tab, and you should see your workflow running.
+Final Thoughts
+While this limitation in GitHub Actions isn't ideal, this workaround makes it possible to test workflow_dispatch workflows directly from feature branches without merging into the default branch.
+<br></br>
+It's a small setup cost that can significantly improve your development workflow.
