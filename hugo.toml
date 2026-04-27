@@ -50,12 +50,12 @@ theme = "hugo-minimal-black"
 
   # Home Page Configuration
   [params.home]
-    sections = ["hero", "now", "tech-marquee", "posts"]
+    sections = ["hero", "now", "tech-marquee", "posts", "projects"]
     showNowSection = true
-    showFeaturedProjects = false
+    showFeaturedProjects = true
     showLatestPosts = true
-    featuredProjectsLimit = 3
-    latestPostsLimit = 3
+    featuredProjectsLimit = 4
+    latestPostsLimit = 4
     projectsTitle = "Selected Work"
     projectsSubtitle = ""
     blogTitle = "Latest Writing"
