@@ -14,23 +14,45 @@
     </header>
 
     {{/* Tag cloud */}}
+    {{/* Collect unique tags and categories */}}
     {{ $allTags := slice }}
+    {{ $allCats := slice }}
     {{ range .Pages }}
     {{ range .Params.tags }}
     {{ $allTags = $allTags | append . }}
     {{ end }}
+    {{ range .Params.categories }}
+    {{ $allCats = $allCats | append . }}
+    {{ end }}
     {{ end }}
     {{ $uniqueTags := $allTags | uniq }}
+    {{ $uniqueCats := $allCats | uniq }}
+
+    {{/* Category filter */}}
+    {{ if $uniqueCats }}
+    <div class="space-y-1">
+      <p class="text-xs text-muted uppercase tracking-widest">Category</p>
+      <div class="flex flex-wrap gap-2" id="cat-cloud">
+        <button class="card-tag-pill tag-filter-cat active" data-cat="all" onclick="filterAll()">All</button>
+        {{ range $uniqueCats }}
+        <button class="card-tag-pill tag-filter-cat" data-cat="{{ . | urlize }}" onclick="filterPosts()">{{ .
+          }}</button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Tag filter */}}
     {{ if $uniqueTags }}
-    <div class="flex flex-wrap gap-2 mt-2" id="tag-cloud">
-      <button class="card-tag-pill tag-filter active" data-tag="all" onclick="filterPosts('all')">
-        All
-      </button>
-      {{ range $uniqueTags }}
-      <button class="card-tag-pill tag-filter" data-tag="{{ . | urlize }}" onclick="filterPosts('{{ . | urlize }}')">
-        {{ . }}
-      </button>
-      {{ end }}
+    <div class="space-y-1">
+      <p class="text-xs text-muted uppercase tracking-widest">Tags</p>
+      <div class="flex flex-wrap gap-2" id="tag-cloud">
+        <button class="card-tag-pill tag-filter-tag active" data-tag="all" onclick="filterAll()">All</button>
+        {{ range $uniqueTags }}
+        <button class="card-tag-pill tag-filter-tag" data-tag="{{ . | urlize }}" onclick="filterPosts()">{{ .
+          }}</button>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
 
@@ -38,7 +60,8 @@
     {{ $paginator := .Paginate .Pages }}
     <div class="grid gap-4 md:grid-cols-2" id="posts-grid">
       {{ range $paginator.Pages.ByDate.Reverse }}
-      <div class="post-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
+      <div class="post-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}"
+        data-cats="{{ range .Params.categories }}{{ . | urlize }} {{ end }}">
         {{ partial "components/post-card.html" (dict "Page" . "Root" $) }}
       </div>
       {{ end }}
@@ -63,7 +86,8 @@
 </section>
 
 <style>
-  .tag-filter {
+  .tag-filter-tag,
+  .tag-filter-cat {
     cursor: pointer;
     border: none;
     background: none;
@@ -71,11 +95,13 @@
     opacity: 0.6;
   }
 
-  .tag-filter:hover {
+  .tag-filter-tag:hover,
+  .tag-filter-cat:hover {
     opacity: 1;
   }
 
-  .tag-filter.active {
+  .tag-filter-tag.active,
+  .tag-filter-cat.active {
     opacity: 1;
     outline: 1px solid var(--color-accent, #a855f7);
   }
@@ -86,21 +112,43 @@
 </style>
 
 <script>
-  function filterPosts(tag) {
-    // Update active button
-    document.querySelectorAll('.tag-filter').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.tag === tag);
+  function filterAll() {
+    // Reset both filters
+    document.querySelectorAll('.tag-filter-tag').forEach(b => {
+      b.classList.toggle('active', b.dataset.tag === 'all');
     });
+    document.querySelectorAll('.tag-filter-cat').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === 'all');
+    });
+    document.querySelectorAll('.post-item').forEach(p => p.classList.remove('hidden'));
+  }
 
-    // Show/hide posts
+  function filterPosts() {
+    const activeTag = document.querySelector('.tag-filter-tag.active')?.dataset.tag || 'all';
+    const activeCat = document.querySelector('.tag-filter-cat.active')?.dataset.cat || 'all';
+
     document.querySelectorAll('.post-item').forEach(post => {
-      if (tag === 'all') {
-        post.classList.remove('hidden');
-      } else {
-        const tags = post.dataset.tags.trim().split(' ');
-        post.classList.toggle('hidden', !tags.includes(tag));
-      }
+      const tags = post.dataset.tags.trim().split(' ').filter(Boolean);
+      const cats = post.dataset.cats.trim().split(' ').filter(Boolean);
+      const tagMatch = activeTag === 'all' || tags.includes(activeTag);
+      const catMatch = activeCat === 'all' || cats.includes(activeCat);
+      post.classList.toggle('hidden', !(tagMatch && catMatch));
     });
   }
-</script>
-{{ end }}
+
+  document.querySelectorAll('.tag-filter-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tag-filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPosts();
+    });
+  });
+
+  document.querySelectorAll('.tag-filter-cat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tag-filter-cat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPosts();
+    });
+  });
+</script>{{ end }}
