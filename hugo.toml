@@ -20,11 +20,11 @@ theme = "hugo-minimal-black"
 
   # Favicon - Place your favicon files in /static/ directory
   # Supported formats: .ico, .png, .svg
-  favicon = "icons/favicon.svg"
+  favicon = "images/favicon.svg"
   appleTouchIcon = "apple-touch-icon.png"
 
   # Logo (optional)
-  logo = "images/flairops400.png"
+  logo = "images/favicon.svg"
 
   # Project and blog intro text
   projectsIntro = "Selected projects to display list." # Can be empty
@@ -171,8 +171,8 @@ theme = "hugo-minimal-black"
     badge = "DevOps Engineer"
     title = "Hi, I'm Krzysztof Filar"
     role = "DevOps Engineer based in Poland"
-    summary = "I help teams build, automate and scale infrastructure. Focused on CI/CD, cloud platforms and making systems reliable."
-    avatar = "images/flairops400.png"  # Optional: 400x400px recommended
+    summary = "I help teams build, automate and scale infrastructure. Focused on AWS, Terraform, CI/CD."
+    avatar = "images/avatar.svg"  # Optional: 400x400px recommended
     location = "Poland"
     focus = "Currently focused on cloud infrastructure and automation."
     available = false
@@ -187,12 +187,12 @@ theme = "hugo-minimal-black"
     ]
 
     [params.hero.primary]
-      label = "View Projects"
-      href = "/projects/"
-
-    [params.hero.secondary]
       label = "Read the Blog"
       href = "/blog/"
+
+    [params.hero.secondary]
+      label = "View Projects"
+      href = "/projects/"
 
   # Icon Libraries
   [params.icons]
@@ -266,7 +266,7 @@ theme = "hugo-minimal-black"
     identifier = "projects"
     [menu.main.params]
       icon = "fa-regular fa-folder-open"
-      
+
 #  [[menu.main]]
 #    name = "About Alt"
 #    pageRef = "about-alternative"
