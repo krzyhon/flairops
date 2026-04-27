@@ -5,21 +5,37 @@ author = "Krzysztof Filar"
 tags = ["git"]
 categories = ["documentation"]
 description = "How to stop tracking changes in a file in Git"
-draft = false
 +++
+## How I Stop Tracking a File in Git (Without Deleting It)
 
-## How to stop tracking changes in a file in Git
+Every now and then, I end up committing something I didn't mean to—usually a .env file, some logs, or a random config. Deleting the file isn't the goal—I just want Git to forget about it.
+Here's the quick way I handle it.
 
-To stop tracking a file, it has to be removed from the index:
+## Removing a File from Git Tracking
+If I want Git to stop tracking a file but keep it on my machine, I run:
 
 ```bash
 git rm --cached <file>
 ```
+That basically tells Git: *“stop tracking this, but don't touch my local copy.”*
 
-To remove a folder and all files in the folder recursively:
-
+## Removing a Folder Instead
+If it's a whole directory (which happens more often than I'd like), I go with:
 ```bash
 git rm -r --cached <folder>
 ```
+The `-r` just makes sure everything inside gets removed from tracking too.
 
-The removal of the file from the head revision will happen on the next commit.
+## Don't Forget to Commit
+After that, Git marks the file as removed, but it's not final until I commit:
+```bash
+git commit -m "Stop tracking file"
+```
+Once that's done, the file is no longer part of the repo history going forward.
+
+## One Thing I Always Do After
+If I removed something because it shouldn't be tracked (like secrets or build files), I add it to .gitignore right away. Otherwise, Git will happily try to track it again later.
+
+## That's It
+
+Nothing fancy—just a small command that saves me from a lot of messy commits. I probably use this more often than I'd like to admit.
