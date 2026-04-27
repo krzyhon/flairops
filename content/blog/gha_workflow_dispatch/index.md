@@ -35,17 +35,19 @@ push:
   - your_feature_branch
 workflow_dispatch:
 ```
-
 ### Step 3: Commit and Push
 Commit the change and push it to your repository. This will trigger the workflow automatically.
-<br></br>
-At this point, GitHub registers your workflow and makes it visible in the Actions tab.
+
+
+At this point, GitHub registers your workflow and makes it visible in the Actions tab\
+(in this case the name of workflow is `Build and deploy`).
+![Actions List](actions_list.png)
 
 ### Step 4: Remove the Temporary Trigger
 Now that the workflow has appeared in the Actions list, you can safely remove the push trigger. 
-![Actions List](actions_list.png)
 Commit and push the changes again.
-<br></br>
+
+
 This is a one-time setup step—without it, the CLI commands in the next step won't work.
 
 ### Step 5: Trigger the Workflow via CLI
