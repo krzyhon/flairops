@@ -8,7 +8,8 @@
     <div class="nav-shell">
       <div class="nav-inner">
         <!-- Brand: logo or monogram, always links to root -->
-        <a href="{{ " /" | relURL }}" class="flex items-center gap-2">
+        {{- $rootURL := "/" | relURL -}}
+        <a href="{{ $rootURL }}" class="flex items-center gap-2">
           {{ with .Site.Params.logo }}
           <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-surface">
             <img src="{{ . | relURL }}" alt="{{ $brand }}" class="h-full w-full object-cover">
@@ -28,9 +29,9 @@
           <nav class="hidden items-center gap-5 md:flex">
             {{- $current := . -}}
             {{- range .Site.Menus.main }}
+            {{- $isActive := $current.IsMenuCurrent "main" . -}}
             <a href="{{ .URL | relURL }}"
-              class="nav-link link-underline flex items-center gap-1 {{ if $current.IsMenuCurrent " main" .
-              }}text-text{{ end }}">
+              class="nav-link link-underline flex items-center gap-1 {{ if $isActive }}text-text{{ end }}">
               {{ with .Params.icon }}
               <i class="{{ . }} text-[0.75rem]"></i>
               {{ end }}
