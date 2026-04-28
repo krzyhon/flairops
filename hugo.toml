@@ -339,3 +339,5 @@ theme = "hugo-minimal-black"
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+
+enableRobotsTXT = true
