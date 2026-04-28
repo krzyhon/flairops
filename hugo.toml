@@ -2,6 +2,7 @@ baseURL = 'https://flairops.cloud'
 languageCode = 'en-us'
 title = 'Krzysztof Filar'
 theme = "hugo-minimal-black"
+enableRobotsTXT = true
 
 # Enable search index generation and web app manifest
 [outputs]
@@ -339,5 +340,3 @@ theme = "hugo-minimal-black"
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
-
-enableRobotsTXT = true
