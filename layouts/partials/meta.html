@@ -1,0 +1,53 @@
+{{- with .Description -}}
+<meta name="description" content="{{ . }}" />
+{{- else -}}
+<meta name="description" content="{{ .Site.Params.description }}" />
+{{- end }}
+
+{{- with .Site.Params.author }}
+<meta name="author" content="{{ . }}" />
+{{- end }}
+
+{{- /* Open Graph */}}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:title"
+  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{- with .Description }}
+<meta property="og:description" content="{{ . }}" />
+{{- else }}
+<meta property="og:description" content="{{ .Site.Params.description }}" />
+{{- end }}
+
+{{- /* OG Image: use page image, else default site og-image */}}
+{{- $ogImage := "" }}
+{{- with .Params.image }}
+{{- $ogImage = . | absURL }}
+{{- else }}
+{{- $ogImage = "images/og-image.png" | absURL }}
+{{- end }}
+<meta property="og:image" content="{{ $ogImage }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+{{- /* Twitter/X Card */}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title"
+  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}" />
+{{- with .Description }}
+<meta name="twitter:description" content="{{ . }}" />
+{{- else }}
+<meta name="twitter:description" content="{{ .Site.Params.description }}" />
+{{- end }}
+<meta name="twitter:image" content="{{ $ogImage }}" />
+
+{{- /* Article specific */}}
+{{- if .IsPage }}
+<meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}" />
+<meta property="article:modified_time" content="{{ .Lastmod.Format " 2006-01-02T15:04:05Z07:00" }}" />
+{{- range .Params.tags }}
+<meta property="article:tag" content="{{ . }}" />
+{{- end }}
+{{- end }}
