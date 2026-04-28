@@ -1,0 +1,145 @@
+{{ define "main" }}
+<section class="layout-page section-stack">
+  <div class="article-layout">
+    <article class="article-main space-y-4">
+      <header class="space-y-2">
+        <h1 class="heading-page text-2xl sm:text-3xl">{{ .Title }}</h1>
+
+        <div class="text-[0.75rem] text-muted">
+          {{ with .Date }}
+          <span>{{ .Format "02 Jan 2006" }}</span>
+          {{ end }}
+          {{ with .ReadingTime }}
+          <span> • {{ . }} min read</span>
+          {{ end }}
+        </div>
+
+        {{ with .Params.description }}
+        <p class="max-w-xl text-sm text-muted">
+          {{ . }}
+        </p>
+        {{ end }}
+      </header>
+
+      <div class="card card-pad">
+        <div class="markdown-body">
+          {{ .Content }}
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <script src="https://giscus.app/client.js" data-repo="krzyhon/flairops" data-repo-id="R_kgDOSLeDXw"
+          data-category="Announcements" data-category-id="DIC_kwDOSLeDX84C73nV" data-mapping="pathname" data-strict="0"
+          data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark"
+          data-lang="en" crossorigin="anonymous" async>
+          </script>
+      </div>
+    </article>
+
+    {{ if .TableOfContents }}
+    <aside class="article-toc">
+      <div class="toc-wrapper">
+        <div class="toc-header">
+          <h3 class="toc-title">
+            <i class="fas fa-list-ul"></i>
+            <span>Table of Contents</span>
+          </h3>
+          <button class="toc-toggle" aria-label="Toggle table of contents">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        <nav class="toc-nav">
+          {{ .TableOfContents }}
+        </nav>
+      </div>
+    </aside>
+
+    <script>
+      (function () {
+        'use strict';
+
+        const tocWrapper = document.querySelector('.toc-wrapper');
+        const tocToggle = document.querySelector('.toc-toggle');
+        const tocNav = document.querySelector('.toc-nav');
+        const tocLinks = document.querySelectorAll('.toc-nav a');
+
+        if (!tocWrapper || !tocNav) return;
+
+        if (tocToggle) {
+          tocToggle.addEventListener('click', function () {
+            tocWrapper.classList.toggle('collapsed');
+          });
+        }
+
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              const yOffset = -80;
+              const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+              window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+              });
+
+              history.pushState(null, null, targetId);
+            }
+          });
+        });
+
+        const headings = document.querySelectorAll('.markdown-body h1[id], .markdown-body h2[id], .markdown-body h3[id], .markdown-body h4[id], .markdown-body h5[id], .markdown-body h6[id]');
+
+        let activeHeading = null;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const intersectingHeadings = [];
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                intersectingHeadings.push({
+                  element: entry.target,
+                  top: entry.boundingClientRect.top
+                });
+              }
+            });
+
+            if (intersectingHeadings.length > 0) {
+              intersectingHeadings.sort((a, b) => Math.abs(a.top) - Math.abs(b.top));
+
+              const closestHeading = intersectingHeadings[0].element;
+              const id = closestHeading.getAttribute('id');
+
+              if (id && id !== activeHeading) {
+                activeHeading = id;
+                const tocLink = document.querySelector(`.toc-nav a[href="#${id}"]`);
+
+                if (tocLink) {
+                  tocLinks.forEach(link => link.classList.remove('active'));
+                  tocLink.classList.add('active');
+                }
+              }
+            }
+          },
+          {
+            rootMargin: '-80px 0px -80%',
+            threshold: [0, 0.25, 0.5, 0.75, 1]
+          }
+        );
+
+        headings.forEach((heading) => {
+          observer.observe(heading);
+        });
+
+        if (tocLinks.length > 0) {
+          tocLinks[0].classList.add('active');
+          activeHeading = tocLinks[0].getAttribute('href').substring(1);
+        }
+      })();
+    </script>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
