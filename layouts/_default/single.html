@@ -4,6 +4,7 @@
 </div>
 
 <script>
+  // Reading progress
   window.addEventListener('scroll', function () {
     const article = document.querySelector('.markdown-body');
     if (!article) return;
@@ -17,6 +18,7 @@
     document.getElementById('reading-progress').style.width = progress + '%';
   });
 </script>
+
 <section class="layout-page section-stack">
   <div class="article-layout">
     <article class="article-main space-y-4">
@@ -44,6 +46,19 @@
           {{ .Content }}
         </div>
       </div>
+
+      {{/* Related posts */}}
+      {{ $related := .Site.RegularPages.Related . | first 3 }}
+      {{ with $related }}
+      <div class="space-y-3">
+        <p class="text-xs text-muted uppercase tracking-widest">Related Posts</p>
+        <div class="grid gap-4 md:grid-cols-3">
+          {{ range . }}
+          {{ partial "components/post-card.html" (dict "Page" . "Root" $) }}
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
 
       <div class="card card-pad">
         <script src="https://giscus.app/client.js" data-repo="krzyhon/flairops" data-repo-id="R_kgDOSLeDXw"
