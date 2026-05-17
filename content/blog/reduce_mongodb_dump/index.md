@@ -277,11 +277,13 @@ After cleanup, verify the size reduction:
 db_name> db.stats()
 ```
 
-Run `db.repairDatabase()` or compact collections to reclaim disk space before dumping:
+After deleting documents, MongoDB doesn't immediately reclaim the disk space — the space is marked as free internally but not released to the OS. Running `compact` on each collection forces MongoDB to defragment and release that space before dumping:
 
 ```
 db_name> db.runCommand({ compact: "collection_name" })
 ```
+
+Note that `compact` blocks the collection while it runs, but since this is a temporary standalone instance with no traffic that's not a concern here.
 
 ### Create a New Reduced Dump
 
