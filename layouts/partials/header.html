@@ -1,4 +1,11 @@
-<header class="pt-6">
+<style>
+  .toc-wrapper {
+    top: 7rem;
+  }
+
+</style>
+
+<header class="pt-6" style="position: sticky; top: 0; z-index: 100; background-color: var(--color-bg);">
   {{/* Brand string for logo/monogram */}}
   {{- $brand := .Site.Params.brand | default .Site.Title}}
   {{- $mono := upper (substr $brand 0 2) -}}
