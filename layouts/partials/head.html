@@ -101,29 +101,13 @@
 <!-- Analytics -->
 {{ partial "analytics.html" . }}
 
-<!-- Fixed header enforcement -->
-<script>
-  function fixHeader() {
-    var h = document.querySelector('.site-header');
-    if (!h) return;
-    h.style.setProperty('position', 'fixed', 'important');
-    h.style.setProperty('top', '0', 'important');
-    h.style.setProperty('left', '0', 'important');
-    h.style.setProperty('right', '0', 'important');
-    h.style.setProperty('width', '100%', 'important');
-    h.style.setProperty('z-index', '9999', 'important');
-  }
-  document.addEventListener('DOMContentLoaded', fixHeader);
-  window.addEventListener('pageshow', fixHeader);
-</script>
-
 <!-- Fixed header styles -->
 <style>
   html {
     overflow-x: hidden;
   }
   .site-header {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
