@@ -1,12 +1,4 @@
-<style>
-  @media (min-width: 1024px) {
-    .toc-wrapper {
-      top: 7rem;
-    }
-  }
-</style>
-
-<header class="pt-6" style="position: sticky; top: 0; z-index: 100; background-color: var(--color-bg);">
+<header class="pt-6 site-header">
   {{/* Brand string for logo/monogram */}}
   {{- $brand := .Site.Params.brand | default .Site.Title}}
   {{- $mono := upper (substr $brand 0 2) -}}
@@ -94,38 +86,3 @@
     </nav>
   </div>
 </header>
-
-<script>
-  (function () {
-    function applyMobileFixed() {
-      var header = document.querySelector('header');
-      if (!header) return;
-      var spacer = document.getElementById('header-spacer');
-
-      if (window.innerWidth < 1024) {
-        header.style.position = 'fixed';
-        header.style.left = '0';
-        header.style.right = '0';
-        if (!spacer) {
-          spacer = document.createElement('div');
-          spacer.id = 'header-spacer';
-          header.insertAdjacentElement('afterend', spacer);
-        }
-        spacer.style.display = '';
-        spacer.style.height = header.getBoundingClientRect().height + 'px';
-      } else {
-        header.style.position = 'sticky';
-        header.style.left = '';
-        header.style.right = '';
-        if (spacer) spacer.style.display = 'none';
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', applyMobileFixed);
-    } else {
-      applyMobileFixed();
-    }
-    window.addEventListener('resize', applyMobileFixed);
-  })();
-</script>
